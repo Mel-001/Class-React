@@ -2,6 +2,25 @@ import React from "react";
 import "./Tmpage.css";
 
 const Tmpage = () => {
+  
+  
+  const [data, setData] = useState([])
+
+  const fetchData = () => {
+    fetch('https://class-schedule-app00.herokuapp.com/api/announcements/')
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res)
+        setData(res)
+      })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  
+  
+  
   return (
     <div>
       <div className="NewRootRoot">
